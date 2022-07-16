@@ -23,27 +23,26 @@ $O(1)$
 Бинарное сужение
 
 ```python
+def shell_sort(arr):
+    n = len(arr)
+    k = int(math.log2(n))
+    interval = 2**k -1
+    while interval > 0:
+        for i in range(interval, n):
+            temp = arr[i]
+            j = i
+            while j >= interval and arr[j - interval] > temp:
+                arr[j] = arr[j - interval]
+                j -= interval
+            arr[j] = temp
+        k -= 1
+        interval = 2**k -1
+    return arr
 
-def shell_sort(array):  
-    n = len(array)  
-    k = int(math.log2(n))  
-    interval = 2**k -1  
-    while interval > 0:  
-        for i in range(interval, n):  
-            temp = array[i]  
-            j = i  
-            while j >= interval and array[j - interval] > temp:  
-                array[j] = array[j - interval]  
-                j -= interval  
-            array[j] = temp  
-        k -= 1  
-        interval = 2**k -1  
-    return array  
-  
-  
-if __name__ == '__main__':  
+
+if __name__ == '__main__':
     print(shell_sort([5, 2, 8, 4, 0, 2, 6, 7]))
-
+    
 ```
 
 ---
