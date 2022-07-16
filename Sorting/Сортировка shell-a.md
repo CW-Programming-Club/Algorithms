@@ -23,6 +23,9 @@ $O(1)$
 Бинарное сужение
 
 ```python
+import math
+
+
 def shell_sort(arr):
     n = len(arr)
     k = int(math.log2(n))
